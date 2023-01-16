@@ -1,16 +1,32 @@
 import React from 'react';
 import LoginIcon from '@mui/icons-material/Login';
-import Groups2Icon from '@mui/icons-material/Groups2';
-import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import styled from 'styled-components';
+
+
+
 
 function MenuCard({place, onClick, color}) {
+    const Div = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 2rem;
+  border-width: 4px;
+  border-color: gray;
+ background-color: ${color};
+  width: 20rem;
+  height: 15rem;
+  justify-content: center;
+ 
+`;
     
     return (
-        <div  onClick={onClick} className={` border-2 rounded-3xl flex flex-col text-center w-72 mb-3  ${color} h-60`} >
+        <Div  onClick={onClick} 
+        >
           <LoginIcon sx={{ marginTop:4, color: 'white', alignSelf: 'center', fontSize: 90 }}/>
             
             <p className=' mt-12 text-white text-2xl  '> {place}</p>
-        </div>
+        </Div>
     );
 }
 
