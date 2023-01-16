@@ -1,20 +1,60 @@
 import React from 'react';
-
+import styled from 'styled-components';
 import MenuCard from '../components/MenuCard';
 
+  const Div = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #3f3f46 ;
+  
+  width: 100vw;
+  height: 100vh;
+  
+  `;  
+  const Div1 = styled.div`
+  display: flex;
+  justify-content: space-around;
+  opacity: 0.9;
+  margin-top:2.5rem ;
+  
+  width: 100vw;
+  
+  
+  `;  
+  const Div2 = styled.div`
+  display: flex;
+  justify-content: space-around;
+  opacity: 0.9;
+  margin-top:1.5rem ;
+  width: 80vw;
+  
+  
+  `; 
+  
+  const H1 = styled.h1`
+  margin-top: 4.5rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 500;
+  font-family: ui-serif, Georgia, 'Times New Roman', Times, serif;
+  color: rgba(255 255 255);
+  
+  `; 
 function LandingUser(props) {
+
     return (
-        <div className='bg-zinc-700 opacity-100 w-screen h-screen flex items-center flex-col'>
-          <h1 className='text-white font-serif font-medium text-2xl mt-24'>Make a selection below.</h1>
-          <div className='mt-10 opacity-90 flex w-screen justify-around'>
-          <MenuCard color={'bg-cyan-700'}  place={"Visitor Check In"}/>
-          <MenuCard color={'bg-emerald-700'}  place={"Visitor Family Check In"}/>
-          </div>
-          <div className='mt-6 flex opacity-90 w-4/5 justify-around'>
-          <MenuCard color={'bg-fuchsia-900'}  place={"Check In (Contractor)"}/>
-          <MenuCard color={'bg-red-900'}  place={"Staff Family Check In"}/>
-          </div>
-        </div>
+        <Div>
+          <H1>Make a selection below.</H1>
+          <Div1>
+          <MenuCard onClick={() => console.log('visitor check in')} color={'#3f7092'}  place={"Visitor Check In"}/>
+          <MenuCard onClick={() => console.log('visitor family ')} color={'#568f65 '}  place={"Visitor Family Check In"}/>
+          </Div1>
+          <Div2>
+          <MenuCard onClick={() => console.log('Contractor')} color={'#963d3d'}  place={"Check In (Contractor)"}/>
+          <MenuCard onClick={() => console.log('Staff family')} color={'#4a4880'}  place={"Staff Family Check In"}/>
+          </Div2>
+          </Div>
     );
 }
 

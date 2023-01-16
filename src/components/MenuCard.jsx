@@ -12,6 +12,7 @@ function MenuCard({ place, onClick, color }) {
       <LoginIcon
         sx={{ marginTop: 4, color: 'white', alignSelf: 'center', fontSize: 90 }}
       />
+
       <p className=' mt-12 text-white text-2xl  '> {place}</p>
     </div>
   );
