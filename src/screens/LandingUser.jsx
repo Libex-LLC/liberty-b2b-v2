@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import MenuCard from '../components/MenuCard';
 
-function LandingUser(props) {
   const Div = styled.div`
   display: flex;
   flex-direction: column;
@@ -42,6 +41,7 @@ function LandingUser(props) {
   color: rgba(255 255 255);
   
   `; 
+function LandingUser(props) {
 
     return (
         <Div>

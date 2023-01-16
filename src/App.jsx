@@ -1,5 +1,4 @@
-
-
+import { Routes, Route } from 'react-router-dom';
 import LandingUser from './screens/LandingUser'
 
 
@@ -8,7 +7,13 @@ function App() {
  
 
   return (
-    <LandingUser/>
+    <div className="App">
+            <Routes>
+                
+                <Route index path={'/'} element={<LandingUser />} />
+               
+            </Routes>
+        </div>
   )
 }
 
