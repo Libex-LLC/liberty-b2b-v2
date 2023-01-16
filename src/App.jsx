@@ -1,6 +1,7 @@
-import './App.css'
+
 
 import LandingUser from './screens/LandingUser'
+import UserForm from './screens/UserForm'
 
 
 function App() {
