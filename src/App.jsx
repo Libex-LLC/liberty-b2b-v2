@@ -1,14 +1,12 @@
-import './App.css'
-
-import LandingUser from './screens/LandingUser'
-
+import './App.css';
+import LandingUser from './screens/LandingUser';
+import { VisitorCheckIn } from './screens/VisitorCheckIn';
 
 function App() {
- 
-
   return (
-    <LandingUser/>
-  )
+    <VisitorCheckIn />
+    // <LandingUser/>
+  );
 }
 
-export default App
+export default App;
