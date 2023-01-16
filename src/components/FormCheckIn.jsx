@@ -128,7 +128,10 @@ export const FormCheckIn = () => {
                   value={userForm.email}
                   size='lg'
                   onChange={(e) => {
-                    setUserForm({ ...userForm, email: e.currentTarget.value });
+                    setUserForm({
+                      ...userForm,
+                      email: e.currentTarget.value,
+                    });
                   }}
                   placeholder='your@email.com'
                 />
@@ -219,9 +222,11 @@ export const FormCheckIn = () => {
           </Stepper>
 
           <Group position='center' mt='xl'>
-            <Button variant='default' onClick={prevStep} size='lg'>
-              Back
-            </Button>
+            {active > 0 ? (
+              <Button variant='default' onClick={prevStep} size='lg'>
+                Back
+              </Button>
+            ) : null}
             {active === 5 ? (
               <Button onClick={handleSubmit} variant='subtle' size='lg'>
                 Confirm
