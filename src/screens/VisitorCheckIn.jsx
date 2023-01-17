@@ -1,9 +1,10 @@
 import React from 'react';
 import { FormCheckIn } from '../components/FormCheckIn';
+import { Box } from '@mantine/core';
 
 export const VisitorCheckIn = () => {
   return (
-    <div
+    <Box
       style={{
         display: 'flex',
         flex: 1,
@@ -16,6 +17,6 @@ export const VisitorCheckIn = () => {
       }}
     >
       <FormCheckIn />
-    </div>
+    </Box>
   );
 };

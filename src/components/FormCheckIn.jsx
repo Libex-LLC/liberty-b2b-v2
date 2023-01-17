@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 //Mantine import
 
 import {
@@ -23,6 +22,7 @@ import {
 //Components import
 
 import StaffCard from './StaffCard';
+import Signature from './Signature';
 
 export const FormCheckIn = () => {
   const [userForm, setUserForm] = useState({
@@ -88,8 +88,8 @@ export const FormCheckIn = () => {
   const prevStep = () =>
     setActive((current) => (current > 0 ? current - 1 : current));
 
-  const handleSubmit = () => {
-    console.log(userForm, 'final state');
+  const handleConfirm = () => {
+    console.log(userForm, 'user Form');
   };
 
   return (
@@ -217,7 +217,7 @@ export const FormCheckIn = () => {
               </Box>
             </Stepper.Step>
             <Stepper.Completed>
-              <Text align='center'>Final step</Text>
+              <Signature />
             </Stepper.Completed>
           </Stepper>
 
@@ -228,9 +228,11 @@ export const FormCheckIn = () => {
               </Button>
             ) : null}
             {active === 5 ? (
-              <Button onClick={handleSubmit} variant='subtle' size='lg'>
-                Confirm
-              </Button>
+              <>
+                <Button onClick={handleConfirm} variant='subtle' size='lg'>
+                  Confirm
+                </Button>
+              </>
             ) : (
               <Button variant='subtle' onClick={nextStep}>
                 Next step

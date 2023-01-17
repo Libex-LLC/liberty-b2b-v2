@@ -7,7 +7,7 @@ function App() {
     <div className='App'>
       <Routes>
         <Route index path={'/'} element={<LandingUser />} />
-        <Route path={'/visitor-check-in'} element={<VisitorCheckIn />} />
+        <Route index path={'/visitor-check-in'} element={<VisitorCheckIn />} />
       </Routes>
     </div>
   );
