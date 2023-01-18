@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import * as faceApi from "face-api.js";
-import styled from "styled-components";
+import React, { useEffect, useRef, useState } from 'react';
+import * as faceApi from 'face-api.js';
+import styled from 'styled-components';
 
-import { PrimaryButton } from "./button";
+import { PrimaryButton } from './button';
 
 const Text = styled.h3`
   text-align: left;
@@ -32,20 +32,20 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
     setRequestCameraAccess(false);
   };
   const errorCallback = function (error) {
-    if (error.name === "NotAllowedError") {
+    if (error.name === 'NotAllowedError') {
       setRequestCameraAccess(true);
     }
   };
 
   const run = async () => {
-    console.log("run started");
+    console.log('run started');
     stream = navigator.mediaDevices.getUserMedia({
-      video: { facingMode: "user", height: 350, width: 350 },
+      video: { facingMode: 'user', height: 350, width: 350 },
     });
 
     stream.then(successCallback, errorCallback);
     try {
-      await faceApi.nets.tinyFaceDetector.load("/models/");
+      await faceApi.nets.tinyFaceDetector.load('/models/');
       videoRef.current.srcObject = await stream;
     } catch (e) {
       console.log(e.name, e.message, e.stack);
@@ -81,10 +81,10 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
     if (result) {
       setShowText(false);
       takeScreenshot(videoRef.current);
-      console.log("detected");
+      console.log('detected');
       videoRef.current.srcObject.getVideoTracks().forEach((track) => {
         track.stop();
-        console.log("stopped");
+        console.log('stopped');
       });
 
       await setPlaying(false);
@@ -97,19 +97,19 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
 
   return (
     <div
-      className={"camera-box"}
+      className={'camera-box'}
       style={{
-        width: "100%",
-        height: "100%",
+        width: '100%',
+        height: '100%',
       }}
     >
       {!image ? (
-        <div className={"camera-container"}>
+        <div className={'camera-container'}>
           {showText && (
             <Text color="red">
-              {" "}
+              {' '}
               Please look at the camera and move you head up and down to take a
-              picture{" "}
+              picture{' '}
             </Text>
           )}
           <video
@@ -118,13 +118,13 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
             muted
             onPlay={onPlay}
             style={{
-              width: "350px !important",
-              height: "350px !important",
+              width: '350px !important',
+              height: '350px !important',
             }}
           />
         </div>
       ) : null}
-      {image && <img src={Image} alt={""} width={350} height={350} />}
+      {image && <img src={Image} alt={''} width={350} height={350} />}
       {image ? (
         <div>
           <PrimaryButton
@@ -133,9 +133,9 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
               setShouldStart(true);
               setShowSpinner(true);
             }}
-            buttonText={"Re-Take Photo"}
+            buttonText={'Re-Take Photo'}
           />
-          <PrimaryButton handleClick={handleSubmit} buttonText={"Submit"} />
+          <PrimaryButton handleClick={handleSubmit} buttonText={'Submit'} />
         </div>
       ) : null}
       {requestCameraAccess && (
@@ -145,8 +145,8 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
             this application
           </Text>
           <Text color="black">
-            {" "}
-            <span style={{ position: "absolute", width: "450px" }}>
+            {' '}
+            <span style={{ position: 'absolute', width: '450px' }}>
               Open Chrome. <br />
               <br />
               1. At the top right, click More More and then Settings.

@@ -30,8 +30,8 @@ function Signature() {
       >
         <SignaturePad
           ref={sigPad}
-          penColor='black'
-          backgroundColor='#FFFFFF'
+          penColor="black"
+          backgroundColor="#FFFFFF"
           canvasProps={{ width: 500, height: 200, className: 'sigCanvas' }}
         />
       </Box>
@@ -44,11 +44,11 @@ function Signature() {
           alignItems: 'center',
         }}
       >
-        <Button onClick={clearSignature} variant='default'>
+        <Button onClick={clearSignature} variant="default">
           Clear
         </Button>
         <Text>Signature</Text>
-        <Button onClick={handleConfirm} variant='default'>
+        <Button onClick={handleConfirm} variant="default">
           Save
         </Button>
       </Box>

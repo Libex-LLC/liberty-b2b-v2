@@ -60,7 +60,14 @@ export const FormCheckIn = () => {
   const nextStep = () => {
     switch (active) {
       case 0:
-        if (!emailRegex.test(String(userForm.email).toLocaleLowerCase())) {
+        if (!userForm.email.length) {
+          setError((prev) => ({
+            ...prev,
+            emailError: 'Email is required',
+          }));
+        } else if (
+          !emailRegex.test(String(userForm.email).toLocaleLowerCase())
+        ) {
           setError((prev) => ({
             ...prev,
             emailError: 'Invalid email address',
@@ -109,7 +116,7 @@ export const FormCheckIn = () => {
             iconSize={60}
             active={active}
             onStepClick={setActive}
-            breakpoint='sm'
+            breakpoint="sm"
             allowNextStepsSelect={false}
             size={'lg'}
           >
@@ -119,78 +126,80 @@ export const FormCheckIn = () => {
                   maxWidth: '100%',
                   marginTop: 50,
                 }}
-                mx='auto'
+                mx="auto"
               >
-                <Text sx={{ marginBottom: 20 }} fz='xl' align='center'>
+                <Text sx={{ marginBottom: 20 }} fz="xl" align="center">
                   Please add your email address
                 </Text>
                 <TextInput
                   value={userForm.email}
-                  size='lg'
+                  size="lg"
                   onChange={(e) => {
                     setUserForm({
                       ...userForm,
                       email: e.currentTarget.value,
                     });
                   }}
-                  placeholder='your@email.com'
+                  placeholder="your@email.com"
                 />
-                <Text sx={{ marginTop: 20 }} color='red'>
-                  {error.emailError}
-                </Text>
+                <Box sx={{ width: '100%', height: 30 }}>
+                  <Text sx={{ marginTop: 20 }} color="red">
+                    {error.emailError}
+                  </Text>
+                </Box>
               </Box>
             </Stepper.Step>
             <Stepper.Step icon={<IconUser />}>
-              <Box sx={{ maxWidth: '100%', marginTop: 50 }} mx='auto'>
-                <Text sx={{ marginBottom: 20 }} fz='xl' align='center'>
+              <Box sx={{ maxWidth: '100%', marginTop: 50 }} mx="auto">
+                <Text sx={{ marginBottom: 20 }} fz="xl" align="center">
                   Please add your Full Name
                 </Text>
                 <TextInput
                   value={userForm.fullName}
-                  size='lg'
+                  size="lg"
                   onChange={(e) =>
                     setUserForm((prev) => ({
                       ...prev,
                       fullName: e.target.value,
                     }))
                   }
-                  placeholder='Full Name'
+                  placeholder="Full Name"
                 />
               </Box>
             </Stepper.Step>
             <Stepper.Step icon={<IconPhone />}>
-              <Box sx={{ maxWidth: '100%', marginTop: 50 }} mx='auto'>
-                <Text sx={{ marginBottom: 20 }} fz='xl' align='center'>
+              <Box sx={{ maxWidth: '100%', marginTop: 50 }} mx="auto">
+                <Text sx={{ marginBottom: 20 }} fz="xl" align="center">
                   Please add your phone number
                 </Text>
                 <NumberInput
                   hideControls
-                  size='lg'
+                  size="lg"
                   onChange={(e) =>
                     setUserForm((prev) => ({
                       ...prev,
                       mobile: e,
                     }))
                   }
-                  placeholder='Mobile'
+                  placeholder="Mobile"
                 />
               </Box>
             </Stepper.Step>
             <Stepper.Step icon={<IconId />}>
-              <Box sx={{ maxWidth: '100%', marginTop: 50 }} mx='auto'>
-                <Text sx={{ marginBottom: 20 }} fz='xl' align='center'>
+              <Box sx={{ maxWidth: '100%', marginTop: 50 }} mx="auto">
+                <Text sx={{ marginBottom: 20 }} fz="xl" align="center">
                   Please add your ID Number
                 </Text>
                 <TextInput
                   value={userForm.idNumber}
-                  size='lg'
+                  size="lg"
                   onChange={(e) =>
                     setUserForm((prev) => ({
                       ...prev,
                       idNumber: e.target.value,
                     }))
                   }
-                  placeholder='ID Number'
+                  placeholder="ID Number"
                 />
               </Box>
             </Stepper.Step>
@@ -210,10 +219,11 @@ export const FormCheckIn = () => {
                     <StaffCard setUserForm={setUserForm} key={el.id} el={el} />
                   );
                 })}
-
-                <Text sx={{ marginTop: 20 }} color='red'>
-                  {error.chooseStaffError}
-                </Text>
+                <Box sx={{ width: '100%', height: 30 }}>
+                  <Text align="center" sx={{ marginTop: 20 }} color="red">
+                    {error.chooseStaffError}
+                  </Text>
+                </Box>
               </Box>
             </Stepper.Step>
             <Stepper.Completed>
@@ -221,20 +231,20 @@ export const FormCheckIn = () => {
             </Stepper.Completed>
           </Stepper>
 
-          <Group position='center' mt='xl'>
+          <Group position="center" mt="xl">
             {active > 0 ? (
-              <Button variant='default' onClick={prevStep} size='lg'>
+              <Button variant="default" onClick={prevStep} size="lg">
                 Back
               </Button>
             ) : null}
             {active === 5 ? (
               <>
-                <Button onClick={handleConfirm} variant='subtle' size='lg'>
+                <Button onClick={handleConfirm} variant="subtle" size="lg">
                   Confirm
                 </Button>
               </>
             ) : (
-              <Button variant='subtle' onClick={nextStep}>
+              <Button variant="subtle" onClick={nextStep}>
                 Next step
               </Button>
             )}
