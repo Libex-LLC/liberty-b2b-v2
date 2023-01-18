@@ -10,7 +10,7 @@ const Text = styled.h3`
   margin-top: 30px;
 `;
 
-// usage: Gotta use use-react-screenshot before calling this component.
+// usage: Gotta use use-react-screenshot before calling this component, which is already installed in dependencies
 // import { useScreenshot } from 'use-react-screenshot'
 // const [image, takeScreenshot] = useScreenshot()
 // <WebcamCapture
@@ -21,6 +21,7 @@ const Text = styled.h3`
 export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
   const videoRef = useRef(null);
   const [playing, setPlaying] = useState(true);
+  const [showSpinner, setShowSpinner] = useState(true); //TODO make spinner
   const [showText, setShowText] = useState(false);
   const [shouldStart, setShouldStart] = useState(true);
   const [image, setImage] = useState(false);
@@ -104,6 +105,13 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
     >
       {!image ? (
         <div className={"camera-container"}>
+          {showText && (
+            <Text color="red">
+              {" "}
+              Please look at the camera and move you head up and down to take a
+              picture{" "}
+            </Text>
+          )}
           <video
             ref={videoRef}
             autoPlay

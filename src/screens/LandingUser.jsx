@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { PrimaryButton } from "../components/button";
 import MenuCard from "../components/MenuCard";
 
 const Div = styled.div`

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styled from "styled-components";
 
 import logo from "../assets/libertyLogoPurple.png";
@@ -29,11 +29,11 @@ const Img = styled.img`
   width: 180px;
   height: 180px;
 `;
-//export const TicketToPrint = forwardRef(({ selfie, name }, ref) => {
-function PrintTemplate({ name, image, QRcode }) {
-  name = "Shakira Repoll"; //temp until name is passed as prop, same is for image being person. remove in final v
+
+export const TicketToPrint = forwardRef(({ selfie, name, QRcode }, ref) => {
+  name = "Shakira Repoll"; //temp until name is passed as prop, same is for selfie image being random person. remove in final v
   QRcode = qrcode; //remove in final v
-  image = person; //remove in final v
+  selfie = person; //remove in final v
   let today = new Date();
   let dd = String(today.getDate()).padStart(2, "0");
   let mm = String(today.getMonth() + 1).padStart(2, "0");
@@ -50,8 +50,8 @@ function PrintTemplate({ name, image, QRcode }) {
   let time = new Date();
   time = time.toLocaleTimeString();
   return (
-    <Wrap>
-      <Img src={image} alt="person" />
+    <Wrap ref={ref}>
+      <Img src={selfie} alt="person" />
       <TextWrap>
         <DateWrap>
           <img
@@ -84,6 +84,4 @@ function PrintTemplate({ name, image, QRcode }) {
       <Img src={QRcode} alt="person" />
     </Wrap>
   );
-}
-
-export default PrintTemplate;
+});
