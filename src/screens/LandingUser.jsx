@@ -2,12 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import MenuCard from '../components/MenuCard';
 import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import styled from 'styled-components';
+import MenuCard from '../components/MenuCard';
 
 const Div = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #3f3f46;
+  background-color: #bababa;
 
   width: 100vw;
   height: 100vh;
@@ -53,10 +56,20 @@ function LandingUser(props) {
           color={'#568f65 '}
           place={'Visitor Family Check In'}
         />
+        <MenuCard
+          onClick={() => console.log('visitor family ')}
+          color={'#568f65 '}
+          place={'Visitor Family Check In'}
+        />
       </Div1>
       <Div2>
         <MenuCard
           onClick={() => console.log('Contractor')}
+          color={'#963d3d'}
+          place={'Check In (Contractor)'}
+        />
+        <MenuCard
+          onClick={() => console.log('Staff family')}
           color={'#963d3d'}
           place={'Check In (Contractor)'}
         />
