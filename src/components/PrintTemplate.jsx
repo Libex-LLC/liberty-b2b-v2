@@ -67,7 +67,6 @@ export const TicketToPrint = forwardRef(({ selfie, name, QRcode }, ref) => {
             {name}
           </p>
         </DateWrap>
-
         <DateWrap
           style={{
             marginTop: "40px",

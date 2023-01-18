@@ -16,7 +16,6 @@
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.4",
     "@tabler/icons": "^1.119.0",
-    "@tensorflow/tfjs-node": "^4.2.0",
     "canvas": "^2.11.0",
     "face-api.js": "^0.20.0",
     "html2canvas": "^1.4.1",
