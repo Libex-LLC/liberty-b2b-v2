@@ -11,8 +11,10 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@mantine/core": "^5.10.0",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.4",
+    "@tabler/icons": "^1.119.0",
     "@tensorflow/tfjs-node": "^4.2.0",
     "canvas": "^2.11.0",
     "face-api.js": "^0.20.0",
@@ -21,6 +23,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.6.2",
+    "react-signature-canvas": "^1.0.6",
     "styled-components": "^5.3.6",
     "use-react-screenshot": "^3.0.0"
   },
