@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import MenuCard from '../components/MenuCard';
-import { useNavigate } from 'react-router-dom';
 
 const Div = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #3f3f46;
+  background-color: #bababa;
 
   width: 100vw;
   height: 100vh;
