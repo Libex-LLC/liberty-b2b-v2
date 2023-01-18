@@ -1,16 +1,34 @@
 import React from "react";
+import styled from "styled-components";
+
+const Button1 = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8efe0;
+  width: 8.1rem;
+  height: 2.5rem;
+  font-size: large;
+  border-radius: 0.8rem;
+  font-weight: 500;
+  border-color: #e9e9e9;
+  border-width: 2px;
+  &:hover,
+  &:focus {
+    background-color: palevioletred;
+  }
+`;
 
 export function PrimaryButton(props) {
   return (
-    <button
+    <Button1
       onClick={props.handleClick}
-      className={"PrimaryButton"}
       value={props.value}
       name={props.name}
       style={props.style ? props.style : undefined}
     >
       {props.buttonText ? props.buttonText : "Button"}
-    </button>
+    </Button1>
   );
 }
 
