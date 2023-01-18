@@ -25,6 +25,7 @@
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.6.2",
     "react-signature-canvas": "^1.0.6",
+    "react-to-print": "^2.14.11",
     "styled-components": "^5.3.6",
     "use-react-screenshot": "^3.0.0"
   },

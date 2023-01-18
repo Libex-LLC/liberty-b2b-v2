@@ -10,7 +10,7 @@ const Text = styled.h3`
   margin-top: 30px;
 `;
 
-// usage: Gotta use use-react-screenshot before calling this component, which is already installed in dependencies
+// USAGE: Gotta use use-react-screenshot before calling this component, which is already installed in dependencies
 // import { useScreenshot } from 'use-react-screenshot'
 // const [image, takeScreenshot] = useScreenshot()
 // <WebcamCapture
@@ -60,12 +60,9 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
   }, [run, shouldStart, setShouldStart, image]);
 
   const onPlay = async () => {
-    if (
-      videoRef.current.paused ||
-      videoRef.current.ended ||
-      !faceApi.nets.tinyFaceDetector.params
-    ) {
-      // setTimeout(() => onPlay());
+    if (!faceApi.nets.tinyFaceDetector.params) {
+      //setTimeout(() => onPlay());
+
       return;
     }
     setPlaying(true);
@@ -92,26 +89,19 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
       await setShouldStart(false);
     }
 
-    setTimeout(() => onPlay(), 1000);
+    setTimeout(() => onPlay(), 500);
   };
 
   return (
     <div
-      className={"camera-box"}
       style={{
-        width: "100%",
-        height: "100%",
+        width: "350px",
+        height: "350px",
+        marginBottom: "20px",
       }}
     >
       {!image ? (
         <div className={"camera-container"}>
-          {showText && (
-            <Text color="red">
-              {" "}
-              Please look at the camera and move you head up and down to take a
-              picture{" "}
-            </Text>
-          )}
           <video
             ref={videoRef}
             autoPlay
@@ -122,11 +112,20 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
               height: "350px !important",
             }}
           />
+          {showText && (
+            <Text color="#634242"> Please look at the camera! </Text>
+          )}
         </div>
       ) : null}
       {image && <img src={Image} alt={""} width={350} height={350} />}
       {image ? (
-        <div>
+        <div
+          style={{
+            width: "350px",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
           <PrimaryButton
             handleClick={() => {
               setImage(false);
@@ -135,7 +134,7 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
             }}
             buttonText={"Re-Take Photo"}
           />
-          <PrimaryButton handleClick={handleSubmit} buttonText={"Submit"} />
+          {/*<PrimaryButton handleClick={handleSubmit} buttonText={"Submit"} /> */}
         </div>
       ) : null}
       {requestCameraAccess && (

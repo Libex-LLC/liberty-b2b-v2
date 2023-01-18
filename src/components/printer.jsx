@@ -39,6 +39,7 @@ function PrintingIcon() {
   return (
     <div
       style={{
+        marginLeft: "5rem",
         width: "200px !important",
         height: "200px !important",
       }}
