@@ -39,8 +39,9 @@ function PrintingIcon() {
   return (
     <div
       style={{
-        width: '200px !important',
-        height: '200px !important',
+        marginLeft: "5rem",
+        width: "200px !important",
+        height: "200px !important",
       }}
     >
       <LocalPrintshopIcon sx={{ fontSize: '200px', color: '#9d948f' }} />

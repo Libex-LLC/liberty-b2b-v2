@@ -5,6 +5,7 @@ import logo from '../assets/libertyLogoPurple.png';
 import person from '../assets/person.png'; //remove in final v
 import qrcode from '../assets/qrcode.png'; //remove in final v
 
+
 const Wrap = styled.div`
   display: flex;
   flex-direction: row;
@@ -34,6 +35,7 @@ export const TicketToPrint = forwardRef(({ selfie, name, QRcode }, ref) => {
   name = 'Shakira Repoll'; //temp until name is passed as prop, same is for selfie image being random person. remove in final v
   QRcode = qrcode; //remove in final v
   selfie = person; //remove in final v
+
   let today = new Date();
   let dd = String(today.getDate()).padStart(2, '0');
   let mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -71,14 +73,14 @@ export const TicketToPrint = forwardRef(({ selfie, name, QRcode }, ref) => {
             {name}
           </p>
         </DateWrap>
-
         <DateWrap
           style={{
             marginTop: '40px',
           }}
         >
-          <p>{today + ' at ' + time} </p>
-          <p>{'Valid Until: ' + tomorrow} </p>
+
+          <p>{`${today} at ${time}`} </p>
+          <p>{`Valit until: ${tomorrow}`} </p>
         </DateWrap>
       </TextWrap>
       <Img src={QRcode} alt="person" />
