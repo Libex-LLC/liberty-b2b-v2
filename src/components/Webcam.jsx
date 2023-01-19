@@ -3,6 +3,7 @@ import * as faceApi from "face-api.js";
 import styled from "styled-components";
 
 import { PrimaryButton } from "./button";
+import LoadingIcon from "./LoadingIcon";
 
 const Text = styled.h3`
   text-align: left;
@@ -67,9 +68,9 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
 
       return;
     }
+    setShowSpinner(false);
     setPlaying(true);
     setShowText(true);
-    setShowSpinner(false);
     const options = new faceApi.TinyFaceDetectorOptions({
       inputSize: 512,
       scoreThreshold: 0.5,
@@ -112,6 +113,7 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
             alignItems: "center",
           }}
         >
+          {showSpinner && <LoadingIcon />}
           <video
             ref={videoRef}
             autoPlay
