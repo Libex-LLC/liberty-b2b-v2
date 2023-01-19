@@ -14,7 +14,7 @@ const Div = styled.div`
 const Div1 = styled.div`
   display: flex;
   justify-content: space-around;
-  opacity: 0.9;
+  opacity: 1;
   margin-top: 2.5rem;
 
   width: 100vw;
@@ -22,7 +22,7 @@ const Div1 = styled.div`
 const Div2 = styled.div`
   display: flex;
   justify-content: space-around;
-  opacity: 0.9;
+  opacity: 1;
   margin-top: 1.5rem;
   width: 80vw;
 `;
@@ -32,7 +32,8 @@ const H1 = styled.h1`
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 500;
-  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: rgba(255 255 255);
 `;
 function LandingUser(props) {

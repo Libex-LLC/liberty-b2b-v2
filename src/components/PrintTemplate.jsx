@@ -76,7 +76,7 @@ export const TicketToPrint = forwardRef(({ selfie, name, QRcode }, ref) => {
           <p>{`Valit until: ${tomorrow}`} </p>
         </DateWrap>
       </TextWrap>
-      <Img src={QRcode} alt="person" />
+      <Img src={QRcode} alt="QR" />
     </Wrap>
   );
 });

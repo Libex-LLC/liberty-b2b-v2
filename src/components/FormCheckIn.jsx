@@ -274,7 +274,12 @@ export const FormCheckIn = () => {
 
           <Group position="center" mt="xl">
             {active > 0 ? (
-              <Button variant="default" onClick={prevStep} size="lg">
+              <Button
+                sx={{ fontSize: "20px" }}
+                variant="default"
+                onClick={prevStep}
+                size="lg"
+              >
                 Back
               </Button>
             ) : null}
@@ -285,7 +290,11 @@ export const FormCheckIn = () => {
                 </Button>
               </>
             ) : (
-              <Button variant="subtle" onClick={nextStep}>
+              <Button
+                sx={{ fontSize: "20px" }}
+                variant="subtle"
+                onClick={nextStep}
+              >
                 Next step
               </Button>
             )}

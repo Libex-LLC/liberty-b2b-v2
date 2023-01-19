@@ -7,7 +7,9 @@ import { PrimaryButton } from "./button";
 const Text = styled.h3`
   text-align: left;
   color: ${(props) => props.color};
-  margin-top: 30px;
+  margin-top: 5px;
+  font-weight: 700;
+  font-size: 20;
 `;
 
 // USAGE: Gotta use use-react-screenshot before calling this component, which is already installed in dependencies
@@ -38,7 +40,7 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
   };
 
   const run = async () => {
-    console.log("run started");
+    shouldStart && console.log("run started");
     stream = navigator.mediaDevices.getUserMedia({
       video: { facingMode: "user", height: 350, width: 350 },
     });
@@ -98,10 +100,18 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
         width: "350px",
         height: "350px",
         marginBottom: "20px",
+        boxShadow: "1px 1px 18px gray",
       }}
     >
       {!image ? (
-        <div className={"camera-container"}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <video
             ref={videoRef}
             autoPlay
