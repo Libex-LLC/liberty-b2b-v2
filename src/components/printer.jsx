@@ -1,7 +1,7 @@
-import React from "react";
-import styled, { keyframes } from "styled-components";
-import ReceiptIcon from "@mui/icons-material/Receipt";
-import LocalPrintshopIcon from "@mui/icons-material/LocalPrintshop";
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
+import ReceiptIcon from '@mui/icons-material/Receipt';
+import LocalPrintshopIcon from '@mui/icons-material/LocalPrintshop';
 
 const fadeIn = keyframes`
   from {
@@ -39,14 +39,14 @@ function PrintingIcon() {
   return (
     <div
       style={{
-        marginLeft: "7.5rem",
-        width: "400px !important",
-        height: "400px !important",
+        marginLeft: '7.5rem',
+        width: '400px !important',
+        height: '400px !important',
       }}
     >
-      <LocalPrintshopIcon sx={{ fontSize: "300px", color: "#9d948f" }} />
+      <LocalPrintshopIcon sx={{ fontSize: '300px', color: '#9d948f' }} />
       <Fade>
-        <ReceiptIcon sx={{ fontSize: "120px", color: "#a9a9a9" }} />
+        <ReceiptIcon sx={{ fontSize: '120px', color: '#a9a9a9' }} />
       </Fade>
     </div>
   );

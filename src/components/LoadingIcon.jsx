@@ -1,6 +1,6 @@
-import React from "react";
-import styled, { keyframes } from "styled-components";
-import LoopIcon from "@mui/icons-material/Loop";
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
+import LoopIcon from '@mui/icons-material/Loop';
 
 const spin = keyframes`
   from {
@@ -23,7 +23,7 @@ const Icon = styled.div`
 function LoadingIcon() {
   return (
     <Icon>
-      <LoopIcon sx={{ fontSize: "80px", color: "#a39191" }} />
+      <LoopIcon sx={{ fontSize: '80px', color: '#a39191' }} />
     </Icon>
   );
 }
