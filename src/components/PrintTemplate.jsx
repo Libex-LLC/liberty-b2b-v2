@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef } from 'react';
+import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import logo from '../assets/libertyLogoPurple.png';
 import qrcode from '../assets/qrcode.png'; //remove in final v

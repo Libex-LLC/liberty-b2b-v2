@@ -1,6 +1,9 @@
 {
   "extends": ["react-app", "react-app/jest", "prettier"],
   "rules": {
-    "semi": "warn"
-  }
+    "indent": ["error", 2],
+    "quotes": ["error", "single",{ "allowTemplateLiterals": true }],
+    "semi": ["error", "always"],
+    "indent": "off"
+}
 }
