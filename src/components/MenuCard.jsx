@@ -19,7 +19,6 @@ const P = styled.p`
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 500;
-  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
   color: rgba(255 255 255);
 `;
 

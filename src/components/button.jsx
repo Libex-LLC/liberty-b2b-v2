@@ -5,13 +5,13 @@ const Button1 = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f8efe0;
+  background-color: #f9f5ef;
   width: 8.1rem;
   height: 2.5rem;
   font-size: large;
-  border-radius: 0.8rem;
+  border-radius: 0.3rem;
   font-weight: 500;
-  border-color: #e9e9e9;
+  border-color: #ced4da;
   border-width: 2px;
   &:hover,
   &:focus {

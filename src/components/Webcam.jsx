@@ -3,14 +3,17 @@ import * as faceApi from "face-api.js";
 import styled from "styled-components";
 
 import { PrimaryButton } from "./button";
+import LoadingIcon from "./LoadingIcon";
 
 const Text = styled.h3`
   text-align: left;
   color: ${(props) => props.color};
-  margin-top: 30px;
+  margin-top: 5px;
+  font-weight: 700;
+  font-size: 20;
 `;
 
-// usage: Gotta use use-react-screenshot before calling this component, which is already installed in dependencies
+// USAGE: Gotta use use-react-screenshot before calling this component, which is already installed in dependencies
 // import { useScreenshot } from 'use-react-screenshot'
 // const [image, takeScreenshot] = useScreenshot()
 // <WebcamCapture
@@ -38,7 +41,7 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
   };
 
   const run = async () => {
-    console.log("run started");
+    shouldStart && console.log("run started");
     stream = navigator.mediaDevices.getUserMedia({
       video: { facingMode: "user", height: 350, width: 350 },
     });
@@ -60,17 +63,14 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
   }, [run, shouldStart, setShouldStart, image]);
 
   const onPlay = async () => {
-    if (
-      videoRef.current.paused ||
-      videoRef.current.ended ||
-      !faceApi.nets.tinyFaceDetector.params
-    ) {
-      // setTimeout(() => onPlay());
+    if (!faceApi.nets.tinyFaceDetector.params) {
+      //setTimeout(() => onPlay());
+
       return;
     }
+    setShowSpinner(false);
     setPlaying(true);
     setShowText(true);
-    setShowSpinner(false);
     const options = new faceApi.TinyFaceDetectorOptions({
       inputSize: 512,
       scoreThreshold: 0.5,
@@ -92,26 +92,28 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
       await setShouldStart(false);
     }
 
-    setTimeout(() => onPlay(), 1000);
+    setTimeout(() => onPlay(), 500);
   };
 
   return (
     <div
-      className={"camera-box"}
       style={{
-        width: "100%",
-        height: "100%",
+        width: "350px",
+        height: "350px",
+        marginBottom: "20px",
+        boxShadow: "1px 1px 18px gray",
       }}
     >
       {!image ? (
-        <div className={"camera-container"}>
-          {showText && (
-            <Text color="red">
-              {" "}
-              Please look at the camera and move you head up and down to take a
-              picture{" "}
-            </Text>
-          )}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {showSpinner && <LoadingIcon />}
           <video
             ref={videoRef}
             autoPlay
@@ -122,11 +124,20 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
               height: "350px !important",
             }}
           />
+          {showText && (
+            <Text color="#634242"> Please look at the camera! </Text>
+          )}
         </div>
       ) : null}
       {image && <img src={Image} alt={""} width={350} height={350} />}
       {image ? (
-        <div>
+        <div
+          style={{
+            width: "350px",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
           <PrimaryButton
             handleClick={() => {
               setImage(false);
@@ -135,7 +146,7 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
             }}
             buttonText={"Re-Take Photo"}
           />
-          <PrimaryButton handleClick={handleSubmit} buttonText={"Submit"} />
+          {/*<PrimaryButton handleClick={handleSubmit} buttonText={"Submit"} /> */}
         </div>
       ) : null}
       {requestCameraAccess && (

@@ -29,8 +29,8 @@ const fadeOut = keyframes`
 
 const Fade = styled.div`
   position: relative;
-  left: -135px;
-  top: 44px;
+  left: -210px;
+  top: 74px;
   ${(props) => (props.out ? `display: none;` : `display: inline-block;`)}
   animation: ${(props) => (props.out ? fadeOut : fadeIn)} 3s linear infinite;
 `;
@@ -39,13 +39,14 @@ function PrintingIcon() {
   return (
     <div
       style={{
-        width: "200px !important",
-        height: "200px !important",
+        marginLeft: "7.5rem",
+        width: "400px !important",
+        height: "400px !important",
       }}
     >
-      <LocalPrintshopIcon sx={{ fontSize: "200px", color: "#9d948f" }} />
+      <LocalPrintshopIcon sx={{ fontSize: "300px", color: "#9d948f" }} />
       <Fade>
-        <ReceiptIcon sx={{ fontSize: "70px", color: "#a9a9a9" }} />
+        <ReceiptIcon sx={{ fontSize: "120px", color: "#a9a9a9" }} />
       </Fade>
     </div>
   );

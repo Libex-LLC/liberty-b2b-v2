@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react';
-import SignaturePad from 'react-signature-canvas';
-import { Box, Button, Text } from '@mantine/core';
+import React, { useRef, useState } from "react";
+import SignaturePad from "react-signature-canvas";
+import { Box, Button, Text } from "@mantine/core";
 
 function Signature() {
   const [pointsArray, setPointsArray] = useState(null);
@@ -10,45 +10,68 @@ function Signature() {
 
   const handleConfirm = () => {
     setPointsArray(sigPad.current.toData());
-    setImageURL(sigPad.current.getTrimmedCanvas().toDataURL('image/png'));
+    setImageURL(sigPad.current.getTrimmedCanvas().toDataURL("image/png"));
   };
 
   const clearSignature = () => {
     sigPad.current.clear();
   };
 
-  console.log(pointsArray, imageURL, 'View image');
+  console.log(pointsArray, imageURL, "View image");
   return (
     <Box>
       <Box
         sx={{
-          width: '100%',
-          alignContent: 'center',
-          justifyContent: 'center',
-          display: 'flex',
+          boxShadow: "1px 1px 3px gray",
+          width: "100%",
+          alignContent: "center",
+          justifyContent: "center",
+          display: "flex",
         }}
       >
         <SignaturePad
           ref={sigPad}
-          penColor='black'
-          backgroundColor='#FFFFFF'
-          canvasProps={{ width: 500, height: 200, className: 'sigCanvas' }}
+          penColor="black"
+          backgroundColor="#FFFFFF"
+          canvasProps={{ width: 700, height: 300, className: "sigCanvas" }}
         />
       </Box>
       <Box
         sx={{
-          width: '100%',
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
         }}
       >
-        <Button onClick={clearSignature} variant='default'>
+        <Button
+          sx={{
+            fontSize: "20px",
+            height: "60px",
+            width: "150px",
+          }}
+          onClick={clearSignature}
+          variant="default"
+        >
           Clear
         </Button>
-        <Text>Signature</Text>
-        <Button onClick={handleConfirm} variant='default'>
+        <Text
+          sx={{
+            fontSize: "20px",
+          }}
+        >
+          Signature
+        </Text>
+        <Button
+          sx={{
+            fontSize: "20px",
+            height: "60px",
+            width: "150px",
+          }}
+          onClick={handleConfirm}
+          variant="default"
+        >
           Save
         </Button>
       </Box>
