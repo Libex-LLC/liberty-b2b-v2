@@ -67,7 +67,11 @@ export const FormCheckIn = () => {
     { id: 12, staffName: 'Marko', role: 'CTO' },
   ];
 
-  const [error, setError] = useState({ emailError: '', chooseStaffError: '' });
+  const [error, setError] = useState({
+    emailError: '',
+    chooseStaffError: '',
+    webcameError: '',
+  });
 
   const [active, setActive] = useState(0);
 
@@ -96,6 +100,17 @@ export const FormCheckIn = () => {
         } else {
           setActive((current) => (current < 7 ? current + 1 : current));
           setError((prev) => ({ ...prev, chooseStaffError: '' }));
+        }
+        break;
+      case 5:
+        if (!Image) {
+          setError((prev) => ({
+            ...prev,
+            webcameError: 'Stand still to take a picture!',
+          }));
+        } else {
+          setActive((current) => (current < 7 ? current + 1 : current));
+          setError((prev) => ({ ...prev, webcameError: '' }));
         }
         break;
       default:

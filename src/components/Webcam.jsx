@@ -13,18 +13,19 @@ const Text = styled.h3`
   font-size: 20;
 `;
 
+// Room needs to be well-lit.
 // USAGE: Gotta use use-react-screenshot before calling this component, which is already installed in dependencies
 // import { useScreenshot } from 'use-react-screenshot'
 // const [image, takeScreenshot] = useScreenshot()
 // <WebcamCapture
-//takeScreenshot={takeScreenshot}
-//Image={Image}
-//handleSubmit={handleSubmit}/>
+// takeScreenshot={takeScreenshot}
+// Image={Image}
+// handleSubmit={handleSubmit}/>
 
-export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
+export const WebcamCapture = ({ takeScreenshot, Image }) => {
   const videoRef = useRef(null);
   const [playing, setPlaying] = useState(true);
-  const [showSpinner, setShowSpinner] = useState(true); //TODO make spinner
+  const [showSpinner, setShowSpinner] = useState(true);
   const [showText, setShowText] = useState(false);
   const [shouldStart, setShouldStart] = useState(true);
   const [image, setImage] = useState(false);
@@ -39,7 +40,7 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
       setRequestCameraAccess(true);
     }
   };
-
+  // TODO save models to folder and make them readable for later use..
   const run = async () => {
     shouldStart && console.log('run started');
     stream = navigator.mediaDevices.getUserMedia({
@@ -62,6 +63,7 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
     }
   }, [run, shouldStart, setShouldStart, image]);
 
+  // If longer wait times are present then set scoreThreshold to lower numbers(not too low becuase it affects efficiency)
   const onPlay = async () => {
     if (!faceApi.nets.tinyFaceDetector.params) {
       //setTimeout(() => onPlay());
@@ -80,9 +82,7 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
 
     if (result) {
       setShowText(false);
-      console.log(videoRef.current);
       takeScreenshot(videoRef.current);
-      console.log(Image);
       console.log('detected');
       videoRef.current.srcObject.getVideoTracks().forEach((track) => {
         track.stop();
@@ -148,7 +148,6 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
             }}
             buttonText={'Re-Take Photo'}
           />
-          {/*<PrimaryButton handleClick={handleSubmit} buttonText={"Submit"} /> */}
         </div>
       ) : null}
       {requestCameraAccess && (
