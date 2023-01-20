@@ -10,9 +10,9 @@ function StaffCard({ el, setUserForm }) {
         flexDirection: 'column',
         alignItems: 'center',
       }}
-      shadow='sm'
-      p='lg'
-      radius='md'
+      shadow="sm"
+      p="lg"
+      radius="md"
       withBorder
     >
       <Text>{el.staffName}</Text>
@@ -20,7 +20,7 @@ function StaffCard({ el, setUserForm }) {
         onClick={() =>
           setUserForm((prev) => ({ ...prev, staffMember: { ...el } }))
         }
-        variant='default'
+        variant="default"
         sx={{ width: 80 }}
       >
         Check
