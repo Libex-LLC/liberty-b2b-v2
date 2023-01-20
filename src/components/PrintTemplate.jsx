@@ -1,7 +1,7 @@
-import React, { forwardRef, useRef } from "react";
-import styled from "styled-components";
-import logo from "../assets/libertyLogoPurple.png";
-import qrcode from "../assets/qrcode.png"; //remove in final v
+import React, { forwardRef } from 'react';
+import styled from 'styled-components';
+import logo from '../assets/libertyLogoPurple.png';
+import qrcode from '../assets/qrcode.png'; //remove in final v
 
 const Wrap = styled.div`
   display: flex;
@@ -31,18 +31,18 @@ const Img = styled.img`
 export const TicketToPrint = forwardRef(({ selfie, name, QRcode }, ref) => {
   QRcode = qrcode; //remove in final v when we get qr code generated for every user
   let today = new Date();
-  let dd = String(today.getDate()).padStart(2, "0");
-  let mm = String(today.getMonth() + 1).padStart(2, "0");
+  let dd = String(today.getDate()).padStart(2, '0');
+  let mm = String(today.getMonth() + 1).padStart(2, '0');
   let yyyy = today.getFullYear();
 
   let tomorrow = new Date(today);
   tomorrow.setDate(tomorrow.getDate() + 1);
-  let tomDD = String(tomorrow.getDate()).padStart(2, "0");
-  let tomMM = String(tomorrow.getMonth() + 1).padStart(2, "0");
+  let tomDD = String(tomorrow.getDate()).padStart(2, '0');
+  let tomMM = String(tomorrow.getMonth() + 1).padStart(2, '0');
   let tomYYYY = tomorrow.getFullYear();
-  tomorrow = tomMM + "/" + tomDD + "/" + tomYYYY;
+  tomorrow = tomMM + '/' + tomDD + '/' + tomYYYY;
 
-  today = mm + "/" + dd + "/" + yyyy;
+  today = mm + '/' + dd + '/' + yyyy;
   let time = new Date();
   time = time.toLocaleTimeString();
   return (
@@ -54,14 +54,14 @@ export const TicketToPrint = forwardRef(({ selfie, name, QRcode }, ref) => {
             src={logo}
             alt="Liberty"
             style={{
-              width: "100px",
-              height: "40px",
+              width: '100px',
+              height: '40px',
             }}
           />
           <p
             style={{
-              fontWeight: "500",
-              fontSize: "24px",
+              fontWeight: '500',
+              fontSize: '24px',
             }}
           >
             {name}
@@ -69,7 +69,7 @@ export const TicketToPrint = forwardRef(({ selfie, name, QRcode }, ref) => {
         </DateWrap>
         <DateWrap
           style={{
-            marginTop: "40px",
+            marginTop: '40px',
           }}
         >
           <p>{`${today} at ${time}`} </p>

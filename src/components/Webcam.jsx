@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import * as faceApi from "face-api.js";
-import styled from "styled-components";
+import React, { useEffect, useRef, useState } from 'react';
+import * as faceApi from 'face-api.js';
+import styled from 'styled-components';
 
-import { PrimaryButton } from "./button";
-import LoadingIcon from "./LoadingIcon";
+import { PrimaryButton } from './button';
+import LoadingIcon from './LoadingIcon';
 
 const Text = styled.h3`
   text-align: left;
@@ -35,20 +35,20 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
     setRequestCameraAccess(false);
   };
   const errorCallback = function (error) {
-    if (error.name === "NotAllowedError") {
+    if (error.name === 'NotAllowedError') {
       setRequestCameraAccess(true);
     }
   };
 
   const run = async () => {
-    shouldStart && console.log("run started");
+    shouldStart && console.log('run started');
     stream = navigator.mediaDevices.getUserMedia({
-      video: { facingMode: "user", height: 350, width: 350 },
+      video: { facingMode: 'user', height: 350, width: 350 },
     });
 
     stream.then(successCallback, errorCallback);
     try {
-      await faceApi.nets.tinyFaceDetector.load("/models/");
+      await faceApi.nets.tinyFaceDetector.load('/models/');
       videoRef.current.srcObject = await stream;
     } catch (e) {
       console.log(e.name, e.message, e.stack);
@@ -81,10 +81,10 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
     if (result) {
       setShowText(false);
       takeScreenshot(videoRef.current);
-      console.log("detected");
+      console.log('detected');
       videoRef.current.srcObject.getVideoTracks().forEach((track) => {
         track.stop();
-        console.log("stopped");
+        console.log('stopped');
       });
 
       await setPlaying(false);
@@ -98,19 +98,19 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
   return (
     <div
       style={{
-        width: "350px",
-        height: "350px",
-        marginBottom: "20px",
-        boxShadow: "1px 1px 18px gray",
+        width: '350px',
+        height: '350px',
+        marginBottom: '20px',
+        boxShadow: '1px 1px 18px gray',
       }}
     >
       {!image ? (
         <div
           style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
           {showSpinner && <LoadingIcon />}
@@ -120,8 +120,8 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
             muted
             onPlay={onPlay}
             style={{
-              width: "350px !important",
-              height: "350px !important",
+              width: '350px !important',
+              height: '350px !important',
             }}
           />
           {showText && (
@@ -129,13 +129,13 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
           )}
         </div>
       ) : null}
-      {image && <img src={Image} alt={""} width={350} height={350} />}
+      {image && <img src={Image} alt={''} width={350} height={350} />}
       {image ? (
         <div
           style={{
-            width: "350px",
-            display: "flex",
-            justifyContent: "center",
+            width: '350px',
+            display: 'flex',
+            justifyContent: 'center',
           }}
         >
           <PrimaryButton
@@ -144,7 +144,7 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
               setShouldStart(true);
               setShowSpinner(true);
             }}
-            buttonText={"Re-Take Photo"}
+            buttonText={'Re-Take Photo'}
           />
           {/*<PrimaryButton handleClick={handleSubmit} buttonText={"Submit"} /> */}
         </div>
@@ -156,8 +156,8 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
             this application
           </Text>
           <Text color="black">
-            {" "}
-            <span style={{ position: "absolute", width: "450px" }}>
+            {' '}
+            <span style={{ position: 'absolute', width: '450px' }}>
               Open Chrome. <br />
               <br />
               1. At the top right, click More More and then Settings.
