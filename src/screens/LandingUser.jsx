@@ -16,7 +16,6 @@ const Div1 = styled.div`
   justify-content: space-around;
   opacity: 1;
   margin-top: 2.5rem;
-
   width: 100vw;
 `;
 const Div2 = styled.div`

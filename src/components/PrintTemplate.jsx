@@ -1,9 +1,10 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
 import logo from '../assets/libertyLogoPurple.png';
-import qrcode from '../assets/qrcode.png'; //remove in final v
+import QRcode from 'react-qr-code';
 
 const Wrap = styled.div`
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -28,8 +29,10 @@ const Img = styled.img`
   height: 180px;
 `;
 
-export const TicketToPrint = forwardRef(({ selfie, name, QRcode }, ref) => {
-  QRcode = qrcode; //remove in final v when we get qr code generated for every user
+//For now QR code is generated for name of the person,
+//later should be changed to auth code of user.
+
+export const TicketToPrint = forwardRef(({ selfie, name }, ref) => {
   let today = new Date();
   let dd = String(today.getDate()).padStart(2, '0');
   let mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -76,7 +79,7 @@ export const TicketToPrint = forwardRef(({ selfie, name, QRcode }, ref) => {
           <p>{`Valit until: ${tomorrow}`} </p>
         </DateWrap>
       </TextWrap>
-      <Img src={QRcode} alt="QR" />
+      <QRcode size={180} value={name} />
     </Wrap>
   );
 });

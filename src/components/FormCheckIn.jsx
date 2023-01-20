@@ -44,12 +44,14 @@ export const FormCheckIn = () => {
     staffMember: '',
     reasonForVisit: '',
   });
-  //Print and Webcam
+  //Print, Webcam
   const [Image, takeScreenshot] = useScreenshot();
+
   const printRef = useRef();
   const print = useReactToPrint({
     content: () => printRef.current,
   });
+
   //when we get apiEnd clear mockData
   const mockData = [
     { id: 1, staffName: 'Marko', role: 'CTO' },
@@ -116,7 +118,6 @@ export const FormCheckIn = () => {
 
   const handleConfirm = () => {
     print();
-    console.log(userForm, 'user Form');
   };
 
   const handleChange = (e) => {
@@ -313,6 +314,7 @@ export const FormCheckIn = () => {
                   name={userForm.fullName}
                   selfie={Image}
                   ref={printRef}
+                  // QRcode={QImage}
                 />
               </div>
             </Stepper.Completed>
@@ -330,11 +332,9 @@ export const FormCheckIn = () => {
               </Button>
             ) : null}
             {active === 7 ? (
-              <>
-                <Button onClick={handleConfirm} variant="subtle" size="lg">
-                  Confirm
-                </Button>
-              </>
+              <Button onClick={handleConfirm} variant="subtle" size="lg">
+                Confirm
+              </Button>
             ) : (
               <Button
                 sx={{ fontSize: '20px' }}
