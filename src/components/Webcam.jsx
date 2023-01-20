@@ -101,9 +101,8 @@ export const WebcamCapture = ({ takeScreenshot, Image }) => {
     <div
       style={{
         width: '350px',
-        height: '350px',
+        height: 'auto',
         marginBottom: '20px',
-        boxShadow: '1px 1px 18px gray',
       }}
     >
       {!image ? (
@@ -122,6 +121,7 @@ export const WebcamCapture = ({ takeScreenshot, Image }) => {
             muted
             onPlay={onPlay}
             style={{
+              boxShadow: '1px 1px 18px gray',
               width: '350px !important',
               height: '350px !important',
             }}
@@ -135,6 +135,7 @@ export const WebcamCapture = ({ takeScreenshot, Image }) => {
       {image ? (
         <div
           style={{
+            boxShadow: '1px 1px 18px gray',
             width: '350px',
             display: 'flex',
             justifyContent: 'center',
