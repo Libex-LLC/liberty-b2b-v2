@@ -80,7 +80,9 @@ export const WebcamCapture = ({ takeScreenshot, Image, handleSubmit }) => {
 
     if (result) {
       setShowText(false);
+      console.log(videoRef.current);
       takeScreenshot(videoRef.current);
+      console.log(Image);
       console.log('detected');
       videoRef.current.srcObject.getVideoTracks().forEach((track) => {
         track.stop();
