@@ -151,6 +151,7 @@ export const FormCheckIn = () => {
 
     const filteredData = fuse.search(e.target.value);
     setData({ ...data, filteredData });
+    console.log(data.data, data.filteredData);
   };
 
   return (
@@ -279,11 +280,19 @@ export const FormCheckIn = () => {
                 }}
               >
                 {data?.filteredData?.map((item) => {
-                  return (
-                    <Box key={item.id}>
-                      <StaffCard setUserForm={setUserForm} el={item} />
-                    </Box>
-                  );
+                  if (item.id) {
+                    return (
+                      <Box key={item.id}>
+                        <StaffCard setUserForm={setUserForm} el={item} />
+                      </Box>
+                    );
+                  } else {
+                    return (
+                      <Box key={item.item.id}>
+                        <StaffCard setUserForm={setUserForm} el={item} />
+                      </Box>
+                    );
+                  }
                 })}
               </Box>
               <Box sx={{ height: 20 }}>
