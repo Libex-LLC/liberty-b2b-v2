@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
+
 import logo from '../assets/libertyLogoPurple.png';
 import QRcode from 'react-qr-code';
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import MenuCard from '../components/MenuCard';
 import { useNavigate } from 'react-router-dom';
 

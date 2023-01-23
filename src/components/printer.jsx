@@ -1,5 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+
+//icons
 import ReceiptIcon from '@mui/icons-material/Receipt';
 import LocalPrintshopIcon from '@mui/icons-material/LocalPrintshop';
 

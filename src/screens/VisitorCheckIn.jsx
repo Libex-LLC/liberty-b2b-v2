@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { FormCheckIn } from '../components/FormCheckIn';
 import { Box } from '@mantine/core';
 
