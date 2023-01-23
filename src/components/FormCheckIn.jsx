@@ -68,7 +68,6 @@ export const FormCheckIn = () => {
     { id: 12, staffName: 'Mirko', role: 'CTO' },
   ];
 
-
   const [data, setData] = useState({
     data: [],
     filteredData: [],
@@ -79,8 +78,11 @@ export const FormCheckIn = () => {
     setData({ data: mockData, filteredData: mockData });
   }, []);
 
-  const [error, setError] = useState({ emailError: '', chooseStaffError: '', webcameError: '', });
-
+  const [error, setError] = useState({
+    emailError: '',
+    chooseStaffError: '',
+    webcameError: '',
+  });
 
   const [active, setActive] = useState(0);
 
@@ -149,6 +151,7 @@ export const FormCheckIn = () => {
 
     const filteredData = fuse.search(e.target.value);
     setData({ ...data, filteredData });
+    console.log(data.data, data.filteredData);
   };
 
   return (
@@ -277,11 +280,19 @@ export const FormCheckIn = () => {
                 }}
               >
                 {data?.filteredData?.map((item) => {
-                  return (
-                    <Box key={item.id}>
-                      <StaffCard setUserForm={setUserForm} el={item} />
-                    </Box>
-                  );
+                  if (item.id) {
+                    return (
+                      <Box key={item.id}>
+                        <StaffCard setUserForm={setUserForm} el={item} />
+                      </Box>
+                    );
+                  } else {
+                    return (
+                      <Box key={item.item.id}>
+                        <StaffCard setUserForm={setUserForm} el={item} />
+                      </Box>
+                    );
+                  }
                 })}
               </Box>
               <Box sx={{ height: 20 }}>
@@ -296,9 +307,13 @@ export const FormCheckIn = () => {
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
+                  flexDirection: 'column',
                 }}
               >
                 <WebcamCapture Image={Image} takeScreenshot={takeScreenshot} />
+                <Text sx={{ marginTop: 20 }} color="red">
+                  {error.webcameError}
+                </Text>
               </div>
             </Stepper.Step>
             <Stepper.Step icon={<IconSignature />}>
