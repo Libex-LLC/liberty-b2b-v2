@@ -1,6 +1,6 @@
-import React from "react";
-import LoginIcon from "@mui/icons-material/Login";
-import styled from "styled-components";
+import React from 'react';
+import LoginIcon from '@mui/icons-material/Login';
+import styled from 'styled-components';
 
 const Div = styled.div`
   display: flex;
@@ -26,7 +26,7 @@ function MenuCard({ place, onClick, color }) {
   return (
     <Div color={color} onClick={onClick}>
       <LoginIcon
-        sx={{ marginTop: 4, color: "white", alignSelf: "center", fontSize: 90 }}
+        sx={{ marginTop: 4, color: 'white', alignSelf: 'center', fontSize: 90 }}
       />
 
       <P> {place}</P>

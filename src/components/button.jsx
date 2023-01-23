@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Button1 = styled.div`
   display: flex;
@@ -27,16 +27,16 @@ export function PrimaryButton(props) {
       name={props.name}
       style={props.style ? props.style : undefined}
     >
-      {props.buttonText ? props.buttonText : "Button"}
+      {props.buttonText ? props.buttonText : 'Button'}
     </Button1>
   );
 }
 
 export function IconButton({ icon, onClick, text }) {
   return (
-    <div className={"IconButtonWrapper"}>
-      <img src={icon} className={"IconImage"} alt="" />
-      <button onClick={onClick} className={"IconButton"}>
+    <div className={'IconButtonWrapper'}>
+      <img src={icon} className={'IconImage'} alt="" />
+      <button onClick={onClick} className={'IconButton'}>
         {text}
       </button>
     </div>
