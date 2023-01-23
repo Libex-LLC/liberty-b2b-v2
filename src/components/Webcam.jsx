@@ -114,7 +114,17 @@ export const WebcamCapture = ({ takeScreenshot, Image }) => {
             alignItems: 'center',
           }}
         >
-          {showSpinner && <LoadingIcon />}
+          {showSpinner && (
+            <div
+              style={{
+                alignSelf: 'center',
+                justifySelf: 'center',
+                position: 'absolute',
+              }}
+            >
+              <LoadingIcon />{' '}
+            </div>
+          )}
           <video
             ref={videoRef}
             autoPlay
@@ -131,24 +141,45 @@ export const WebcamCapture = ({ takeScreenshot, Image }) => {
           )}
         </div>
       ) : null}
-      {image && <img src={Image} alt={''} width={350} height={350} />}
-      {image ? (
-        <div
+      {image && (
+        <img
           style={{
             boxShadow: '1px 1px 18px gray',
-            width: '350px',
-            display: 'flex',
-            justifyContent: 'center',
           }}
-        >
-          <PrimaryButton
-            handleClick={() => {
-              setImage(false);
-              setShouldStart(true);
-              setShowSpinner(true);
+          src={Image}
+          alt={''}
+          width={350}
+          height={350}
+        />
+      )}
+      {image ? (
+        <div>
+          <div
+            style={{
+              boxShadow: '1px 1px 18px gray',
+              width: '350px',
+              display: 'flex',
+              justifyContent: 'center',
             }}
-            buttonText={'Re-Take Photo'}
-          />
+          ></div>
+          <div
+            style={{
+              width: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignContent: 'center',
+              marginTop: '3px',
+            }}
+          >
+            <PrimaryButton
+              handleClick={() => {
+                setImage(false);
+                setShouldStart(true);
+                setShowSpinner(true);
+              }}
+              buttonText={'Re-Take Photo'}
+            />
+          </div>
         </div>
       ) : null}
       {requestCameraAccess && (
