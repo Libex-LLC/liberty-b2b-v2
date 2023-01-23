@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import MenuCard from '../components/MenuCard';
 import { useNavigate } from 'react-router-dom';
 
@@ -31,8 +32,6 @@ const H1 = styled.h1`
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 500;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: rgba(255 255 255);
 `;
 function LandingUser(props) {
