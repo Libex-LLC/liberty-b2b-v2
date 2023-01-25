@@ -44,7 +44,7 @@ const Div = styled.div`
   flex-direction: column;
   width: 50rem;
   height: 35rem;
-  box-shadow: 1px 1px 10px gray;
+  box-shadow: 0px 0px 3px gray;
 `;
 const InputDiv = styled.div`
   display: flex;
@@ -60,7 +60,7 @@ const UserMesDiv = styled.div`
   width: fit-content;
   max-width: 50%;
   height: fit-content;
-  border-width: 2px;
+  border-width: 1px;
   border-radius: 0.5rem;
   margin-bottom: 0.5rem;
   text-align: start;
@@ -70,13 +70,15 @@ const UserMesDiv = styled.div`
   -ms-word-break: break-word;
   background-color: white;
   opacity: 0.9;
+  border-top-left-radius: 0px;
+  box-shadow: -1px 2px 0px #d4d4d4;
 `;
 const StaffMesDiv = styled.div`
   margin-inline: 1rem;
   width: fit-content;
   max-width: 50%;
   height: fit-content;
-  border-width: 2px;
+  border-width: 1px;
   border-radius: 0.5rem;
   margin-bottom: 1rem;
   text-align: end;
@@ -87,6 +89,8 @@ const StaffMesDiv = styled.div`
   -ms-word-break: break-word;
   background-color: white;
   opacity: 0.9;
+  border-bottom-right-radius: 0px;
+  box-shadow: 1px 2px 0px #d4d4d4;
 `;
 const Button = styled.button`
   display: flex;
@@ -171,12 +175,16 @@ function Message(props) {
     });
   };
   const handleClick = () => {
-    setNewMessage({
-      ...newMessage,
-      message: '',
-    });
-    nbr++;
-    setGroupMessage((groupMessage) => [...groupMessage, newMessage]);
+    if (newMessage.message === '') {
+      return;
+    } else {
+      setGroupMessage((groupMessage) => [...groupMessage, newMessage]);
+      setNewMessage({
+        ...newMessage,
+        message: '',
+      });
+      nbr++;
+    }
   };
 
   return (

@@ -2,7 +2,6 @@ import React from 'react';
 
 import { FormCheckIn } from '../components/FormCheckIn';
 import { Box } from '@mantine/core';
-import Message from '../components/Message';
 
 export const VisitorCheckIn = () => {
   return (
