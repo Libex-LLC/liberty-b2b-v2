@@ -34,6 +34,7 @@ import StaffCard from './StaffCard';
 import Signature from './Signature';
 import { WebcamCapture } from './Webcam';
 import { TicketToPrint } from './PrintTemplate';
+import Message from './Message';
 
 export const FormCheckIn = () => {
   const [userForm, setUserForm] = useState({
@@ -46,7 +47,7 @@ export const FormCheckIn = () => {
   });
   //Print, Webcam
   const [Image, takeScreenshot] = useScreenshot();
-
+  const [chatVisible, setChatVisible] = useState(false);
   const printRef = useRef();
   const print = useReactToPrint({
     content: () => printRef.current,
@@ -151,11 +152,22 @@ export const FormCheckIn = () => {
 
     const filteredData = fuse.search(e.target.value);
     setData({ ...data, filteredData });
-    console.log(data.data, data.filteredData);
   };
 
   return (
     <>
+      {chatVisible && (
+        <div
+          style={{
+            position: 'absolute',
+            alignSelf: 'center',
+            justifySelf: 'center',
+            zIndex: 100,
+          }}
+        >
+          <Message />
+        </div>
+      )}
       <Box
         sx={{
           width: '100%',
@@ -186,6 +198,7 @@ export const FormCheckIn = () => {
                 <Text sx={{ marginBottom: 20 }} fz="xl" align="center">
                   Please add your email address
                 </Text>
+
                 <TextInput
                   value={userForm.email}
                   size="lg"
