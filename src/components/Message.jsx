@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
+import bg from '../assets/libertyLogoPurple.png';
+
 //usage
 //<div
 //style={{
@@ -19,11 +21,20 @@ import styled from 'styled-components';
 let nbr = 13;
 const DivMesContaier = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   overflow-y: scroll;
   height: 80%;
   scroll-behavior: smooth;
 `;
+const MessageBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-image: url(${bg});
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+
 const Div = styled.div`
   background-color: white;
   border-radius: 1rem;
@@ -54,6 +65,10 @@ const UserMesDiv = styled.div`
   text-align: start;
   padding-inline: 1rem;
   font-size: x-large;
+  word-break: break-word;
+  -ms-word-break: break-word;
+  background-color: white;
+  opacity: 0.9;
 `;
 const StaffMesDiv = styled.div`
   margin-inline: 1rem;
@@ -67,6 +82,10 @@ const StaffMesDiv = styled.div`
   align-self: end;
   padding-inline: 1rem;
   font-size: x-large;
+  word-break: break-word;
+  -ms-word-break: break-word;
+  background-color: white;
+  opacity: 0.9;
 `;
 const Button = styled.button`
   display: flex;
@@ -82,6 +101,16 @@ const Button = styled.button`
   margin-inline: 1rem;
   margin-top: 17px;
 `;
+const Input = styled.input`
+  width: 80%;
+  height: 100%;
+  margin-inline: 10;
+  border-radius: 0.5rem;
+  border-width: 2px;
+  padding-inline: 6px;
+  margin-top: 0.5rem;
+  font-size: 20px;
+`;
 
 function Message(props) {
   const [newMessage, setNewMessage] = useState({
@@ -92,16 +121,40 @@ function Message(props) {
   //for now we use mockMessages but later we will have replies from staff and user messages
   const mockMessage = [
     { id: 1, name: 'Staff', message: 'something' },
-    { id: 2, name: 'Customer', message: 'something' },
-    { id: 3, name: 'Customer', message: 'something' },
+    {
+      id: 2,
+      name: 'Customer',
+      message: 'something customer wrote to staff member',
+    },
+    {
+      id: 3,
+      name: 'Customer',
+      message: 'something  customer wrote to staff member',
+    },
     { id: 4, name: 'Staff', message: 'something' },
-    { id: 5, name: 'Customer', message: 'something' },
+    {
+      id: 5,
+      name: 'Customer',
+      message: 'something  customer wrote to staff member',
+    },
     { id: 6, name: 'Staff', message: 'something' },
-    { id: 7, name: 'Customer', message: 'something' },
+    {
+      id: 7,
+      name: 'Customer',
+      message: 'something  customer wrote to staff member',
+    },
     { id: 8, name: 'Staff', message: 'something' },
-    { id: 9, name: 'Customer', message: 'something' },
+    {
+      id: 9,
+      name: 'Customer',
+      message: 'something  customer wrote to staff member',
+    },
     { id: 10, name: 'Staff', message: 'something' },
-    { id: 11, name: 'Customer', message: 'something' },
+    {
+      id: 11,
+      name: 'Customer',
+      message: 'something  customer wrote to staff member',
+    },
     { id: 12, name: 'Staff', message: 'crucial thig of importance' },
   ];
 
@@ -128,30 +181,22 @@ function Message(props) {
   return (
     <Div>
       <DivMesContaier>
-        {groupMessage.map((data) =>
-          data.name === 'Customer' ? (
-            <UserMesDiv key={data.id}>{data.message}</UserMesDiv>
-          ) : (
-            <StaffMesDiv key={data.id}>{data.message}</StaffMesDiv>
-          ),
-        )}
+        <MessageBox>
+          {groupMessage.map((data) =>
+            data.name === 'Customer' ? (
+              <UserMesDiv key={data.id}>{data.message}</UserMesDiv>
+            ) : (
+              <StaffMesDiv key={data.id}>{data.message}</StaffMesDiv>
+            ),
+          )}
+        </MessageBox>
       </DivMesContaier>
       <InputDiv>
-        <input
+        <Input
           onChange={handleChange}
           placeholder="write shomething"
           value={newMessage.message}
-          style={{
-            width: '80%',
-            height: '100%',
-            marginInline: 10,
-            borderRadius: '0.5rem',
-            borderWidth: '2px',
-            paddingInline: '6px',
-            marginTop: '0.5rem',
-            fontSize: '20px',
-          }}
-        ></input>
+        ></Input>
         <Button onClick={() => handleClick()}>
           <p>Send</p>
         </Button>

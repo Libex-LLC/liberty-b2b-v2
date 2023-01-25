@@ -47,7 +47,7 @@ export const FormCheckIn = () => {
   });
   //Print, Webcam
   const [Image, takeScreenshot] = useScreenshot();
-  const [chatVisible, setChatVisible] = useState(false);
+  const [chatVisible, setChatVisible] = useState(true);
   const printRef = useRef();
   const print = useReactToPrint({
     content: () => printRef.current,
