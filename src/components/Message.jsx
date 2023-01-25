@@ -17,7 +17,7 @@ import bg from '../assets/libertyLogoPurple.png';
 //</div>
 
 //nbr is used for key in map, so each message has it's own unique key
-//it starts from 13 becuase in mocData we have 12 pre-generated messages.
+//it starts from 13 becuase in mockData we have 12 pre-generated messages.
 let nbr = 13;
 const DivMesContaier = styled.div`
   display: flex;
@@ -25,6 +25,7 @@ const DivMesContaier = styled.div`
   overflow-y: scroll;
   height: 80%;
   scroll-behavior: smooth;
+  margin-top: 10px;
 `;
 const MessageBox = styled.div`
   display: flex;
@@ -104,7 +105,7 @@ const Button = styled.button`
 const Input = styled.input`
   width: 80%;
   height: 100%;
-  margin-inline: 10;
+  margin-inline: 10px;
   border-radius: 0.5rem;
   border-width: 2px;
   padding-inline: 6px;
@@ -129,19 +130,19 @@ function Message(props) {
     {
       id: 3,
       name: 'Customer',
-      message: 'something  customer wrote to staff member',
+      message: 'something',
     },
     { id: 4, name: 'Staff', message: 'something' },
     {
       id: 5,
       name: 'Customer',
-      message: 'something  customer wrote to staff member',
+      message: 'something ',
     },
     { id: 6, name: 'Staff', message: 'something' },
     {
       id: 7,
       name: 'Customer',
-      message: 'something  customer wrote to staff member',
+      message: 'something  ',
     },
     { id: 8, name: 'Staff', message: 'something' },
     {
