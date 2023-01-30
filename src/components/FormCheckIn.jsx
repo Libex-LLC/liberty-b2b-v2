@@ -47,7 +47,7 @@ export const FormCheckIn = () => {
   });
   //Print, Webcam
   const [Image, takeScreenshot] = useScreenshot();
-  const [chatVisible, setChatVisible] = useState(false); //if true chat is shown over everything
+  const [chatVisible, setChatVisible] = useState(true); //if true chat is shown over everything
   const printRef = useRef();
   const print = useReactToPrint({
     content: () => printRef.current,

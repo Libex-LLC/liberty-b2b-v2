@@ -52,7 +52,7 @@ export const WebcamCapture = ({ takeScreenshot, Image }) => {
       await faceApi.nets.tinyFaceDetector.load('/models/');
       videoRef.current.srcObject = await stream;
     } catch (e) {
-      console.log(e.name, e.message, e.stack);
+      console.log(e.name, e.message, e.stack); //clear
     }
   };
 
@@ -83,10 +83,10 @@ export const WebcamCapture = ({ takeScreenshot, Image }) => {
     if (result) {
       setShowText(false);
       takeScreenshot(videoRef.current);
-      console.log('detected');
+      console.log('detected'); //clear
       videoRef.current.srcObject.getVideoTracks().forEach((track) => {
         track.stop();
-        console.log('stopped');
+        console.log('stopped'); //clear
       });
 
       await setPlaying(false);
@@ -122,7 +122,7 @@ export const WebcamCapture = ({ takeScreenshot, Image }) => {
                 position: 'absolute',
               }}
             >
-              <LoadingIcon />{' '}
+              <LoadingIcon />
             </div>
           )}
           <video

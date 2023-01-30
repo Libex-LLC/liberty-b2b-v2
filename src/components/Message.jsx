@@ -18,6 +18,7 @@ import bg from '../assets/libertyLogoPurple.png';
 
 //nbr is used for key in map, so each message has it's own unique key
 //it starts from 13 becuase in mockData we have 12 pre-generated messages.
+
 let nbr = 13;
 const DivMesContaier = styled.div`
   display: flex;
@@ -34,11 +35,12 @@ const MessageBox = styled.div`
   background-image: url(${bg});
   background-repeat: no-repeat;
   background-position: center;
+  background-attachment: fixed;
 `;
 
 const Div = styled.div`
   background-color: white;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   opacity: 0.9;
   display: flex;
   flex-direction: column;
@@ -97,14 +99,15 @@ const Button = styled.button`
   justify-content: center;
   align-items: center;
   width: 6rem;
-  height: 2.1rem;
+  height: 2.9rem;
   background-color: burlywood;
   align-self: center;
   border-radius: 1rem;
-  font-size: large;
+  font-size: 21px;
   font-weight: 500;
   margin-inline: 1rem;
   margin-top: 17px;
+  box-shadow: 2px 1px 0px #d4d4d4;
 `;
 const Input = styled.input`
   width: 80%;
@@ -115,6 +118,7 @@ const Input = styled.input`
   padding-inline: 6px;
   margin-top: 0.5rem;
   font-size: 20px;
+  box-shadow: 1px 2px 0px #d4d4d4;
 `;
 
 function Message(props) {
